@@ -1,0 +1,45 @@
+
+[
+  {
+    "name": "The Origin",
+    "description": "Where everything begins. A quiet point before the infinite.",
+    "detail": "Every great journey begins with a single step. The Origin is the starting point of every possibility. Nothing is created without curiosity.",
+    "color": "radial-gradient(circle at 30% 25%, #d6c7ff, #8757e8 40%, #26134c 75%)",
+    "glow": "rgba(134,83,255,.35)"
+  },
+  {
+    "name": "Blue Horizon",
+    "description": "A distant world wrapped in light, mystery, and endless blue.",
+    "detail": "Blue Horizon represents the unknown. Beyond every horizon lies something you have never seen, and beyond that, another horizon.",
+    "color": "radial-gradient(circle at 30% 25%, #c5f8ff, #398cc5 45%, #102443 80%)",
+    "glow": "rgba(70,180,255,.35)"
+  },
+  {
+    "name": "Silent Moon",
+    "description": "A calm place in the middle of a universe that never stops moving.",
+    "detail": "Silent Moon is a reminder that quiet moments are also part of the journey. Take time to observe, reflect, and find your direction.",
+    "color": "radial-gradient(circle at 30% 25%, #fff1d6, #c18b66 45%, #3a2026 80%)",
+    "glow": "rgba(255,170,100,.3)"
+  },
+  {
+    "name": "Void",
+    "description": "Beyond the stars, beyond the light. Something waits in the darkness.",
+    "detail": "Void is not an ending. It is space for new ideas, new paths, and new discoveries waiting to take shape.",
+    "color": "radial-gradient(circle at 30% 25%, #f2c9ff, #8b3ba9 45%, #220d35 80%)",
+    "glow": "rgba(210,90,255,.3)"
+  },
+  {
+    "name": "Eclipse",
+    "description": "A rare moment when light and darkness become one.",
+    "detail": "Eclipse represents change. Sometimes a different perspective is all it takes to reveal something extraordinary.",
+    "color": "radial-gradient(circle at 30% 25%, #ffe3b0, #dc6c50 45%, #371521 80%)",
+    "glow": "rgba(255,105,90,.3)"
+  },
+  {
+    "name": "Infinity",
+    "description": "No borders. No limits. Just the endless possibilities of what comes next.",
+    "detail": "Infinity is the final world, but never the final destination. The universe is vast, and your curiosity can take you anywhere.",
+    "color": "radial-gradient(circle at 30% 25%, #d6fff1, #45c8a3 45%, #10392f 80%)",
+    "glow": "rgba(70,255,195,.3)"
+  }
+]
