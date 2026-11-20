@@ -1,105 +1,238 @@
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEBULA — Beyond The Ordinary</title>
-  <meta name="description" content="An interactive journey through a digital universe.">
+  <meta name="theme-color" content="#05060b">
+  <meta name="description" content="NEBULA — An interactive journey through the universe.">
+  <title>NEBULA — Beyond Ordinary</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <canvas id="stars"></canvas>
-  <div class="cursor-glow" id="glow"></div>
+  <canvas id="starfield"></canvas>
+  <div class="ambient-glow" id="ambientGlow"></div>
 
-  <nav class="nav">
-    <a class="brand" href="#home"><span class="brand-mark">✳</span> NEBULA</a>
+  <nav class="navbar">
+    <a href="#home" class="logo">
+      <span class="logo-symbol">✳</span>
+      NEBULA
+    </a>
+
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#universe">Universe</a>
-      <a href="#discover">Discover</a>
+      <a href="#about">About</a>
     </div>
-    <a class="nav-cta" href="#discover">Explore <span>↗</span></a>
+
+    <a href="#universe" class="nav-explore">
+      Explore <span>↗</span>
+    </a>
   </nav>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-top">
-        <span class="eyebrow"><span class="live-dot"></span> DIGITAL EXPERIENCE / 2026</span>
-        <span class="coordinates">24° 36' 12" N — DEEP SPACE</span>
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-meta">
+      <div class="status">
+        <span class="status-dot"></span>
+        INTERACTIVE COSMOS
+      </div>
+      <span class="coordinates">SOLAR SYSTEM / DEEP SPACE</span>
+    </div>
+
+    <div class="hero-scene">
+
+      <div class="orbit orbit-large">
+        <span class="orbit-dot"></span>
       </div>
 
-      <div class="hero-center">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="planet">
-          <div class="planet-shade"></div>
-          <div class="planet-ring"></div>
-        </div>
-        <div class="planet-small"></div>
-        <div class="hero-title">
-          <p class="title-kicker">A JOURNEY INTO THE UNKNOWN</p>
-          <h1>BEYOND<br><span>ORDINARY.</span></h1>
-          <p class="hero-desc">Somewhere between reality and imagination,<br>there's a universe waiting to be discovered.</p>
-          <a href="#universe" class="explore-btn">
-            <span class="explore-icon">↓</span>
-            <span>BEGIN YOUR JOURNEY</span>
-          </a>
-        </div>
+      <div class="orbit orbit-small">
+        <span class="orbit-dot blue"></span>
       </div>
 
-      <div class="hero-bottom">
-        <span>SCROLL TO EXPLORE</span>
-        <div class="scroll-line"></div>
-        <span>01 / 03</span>
-      </div>
-    </section>
-
-    <section class="universe section" id="universe">
-      <div class="section-head reveal">
-        <div>
-          <p class="eyebrow">01 — THE UNIVERSE</p>
-          <h2>Infinite space.<br><span>Infinite possibilities.</span></h2>
-        </div>
-        <p class="section-note">Every point of light holds a story.<br>Every world has something to discover.</p>
+      <div id="planet3d" class="planet-stage">
+        <div class="planet-loading">INITIALIZING PLANET...</div>
       </div>
 
-      <div class="universe-grid" id="universeGrid"></div>
-    </section>
+      <div class="hero-content">
+        <span class="hero-kicker">A JOURNEY INTO THE UNKNOWN</span>
 
-    <section class="discover section" id="discover">
-      <div class="discover-content reveal">
-        <p class="eyebrow">02 — THE NEXT FRONTIER</p>
-        <h2>Curiosity is<br>your <span>compass.</span></h2>
-        <p>Don't just look at the universe.<br>Become a part of it.</p>
-        <button class="launch-btn" id="launchBtn">INITIATE EXPLORATION <span>↗</span></button>
-      </div>
-      <div class="portal">
-        <div class="portal-ring ring-a"></div>
-        <div class="portal-ring ring-b"></div>
-        <div class="portal-ring ring-c"></div>
-        <div class="portal-core"></div>
-      </div>
-    </section>
-  </main>
+        <h1>
+          BEYOND<br>
+          <span>ORDINARY.</span>
+        </h1>
 
-  <footer>
-    <a class="brand" href="#home"><span class="brand-mark">✳</span> NEBULA</a>
-    <span>MADE FOR THE CURIOUS.</span>
-    <span>© 2026 — DIGITAL UNIVERSE</span>
+        <p>
+          Somewhere between reality and imagination,<br>
+          there's a universe waiting to be discovered.
+        </p>
+
+        <a href="#universe" class="journey-button">
+          <span class="button-circle">↓</span>
+          BEGIN YOUR JOURNEY
+        </a>
+      </div>
+
+      <div class="scene-label label-left">
+        <span>PLANET 001</span>
+        <span>ROTATE TO EXPLORE</span>
+      </div>
+
+      <div class="scene-label label-right">
+        <span>360° EXPERIENCE</span>
+        <span>DRAG / TOUCH</span>
+      </div>
+
+    </div>
+
+    <div class="hero-footer">
+      <span>SCROLL TO EXPLORE</span>
+      <div class="scroll-progress-line"></div>
+      <span>01 — 03</span>
+    </div>
+
+  </section>
+
+  <!-- UNIVERSE -->
+  <section class="section universe-section" id="universe">
+
+    <div class="section-heading reveal">
+      <div>
+        <span class="section-kicker">01 / DISCOVER WORLDS</span>
+        <h2>Infinite space.<br><span>Infinite possibilities.</span></h2>
+      </div>
+
+      <p class="section-description">
+        Beyond the boundaries of our imagination lies an endless
+        collection of worlds, each with its own story, atmosphere,
+        and mysteries waiting to be discovered.
+      </p>
+    </div>
+
+    <div class="planet-grid" id="planetGrid"></div>
+
+    <div class="universe-note reveal">
+      <span class="note-symbol">✳</span>
+      <p>Choose a world. Discover its story. Keep exploring.</p>
+    </div>
+
+  </section>
+
+  <!-- COSMIC INFORMATION -->
+  <section class="section knowledge-section" id="about">
+
+    <div class="knowledge-top reveal">
+      <span class="section-kicker">02 / COSMIC PERSPECTIVE</span>
+      <h2>There is more<br>than meets the <span>eye.</span></h2>
+      <p>
+        The universe is more than a collection of stars. It is a vast
+        landscape of time, energy, matter, and unanswered questions.
+        Every discovery changes how we understand our place within it.
+      </p>
+    </div>
+
+    <div class="stat-grid reveal">
+      <div class="stat">
+        <span class="stat-number">13.8B</span>
+        <span class="stat-title">YEARS</span>
+        <p>Approximate age of the universe</p>
+      </div>
+
+      <div class="stat">
+        <span class="stat-number">∞</span>
+        <span class="stat-title">POSSIBILITIES</span>
+        <p>Limitless ideas to discover</p>
+      </div>
+
+      <div class="stat">
+        <span class="stat-number">1</span>
+        <span class="stat-title">PERSPECTIVE</span>
+        <p>A different way to see everything</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PORTAL -->
+  <section class="portal-section">
+
+    <div class="portal-copy reveal">
+      <span class="section-kicker">03 / THE NEXT FRONTIER</span>
+      <h2>Curiosity is<br>your <span>compass.</span></h2>
+      <p>
+        The most extraordinary journeys begin with a question.
+        Stay curious, look beyond what you know, and never stop
+        searching for something new.
+      </p>
+
+      <button class="launch-button" id="launchButton">
+        INITIATE EXPLORATION <span>↗</span>
+      </button>
+    </div>
+
+    <div class="portal-visual" id="portalVisual">
+      <div class="portal-ring ring-1"></div>
+      <div class="portal-ring ring-2"></div>
+      <div class="portal-ring ring-3"></div>
+      <div class="portal-light"></div>
+      <div class="portal-core"></div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="#home" class="logo">
+      <span class="logo-symbol">✳</span>
+      NEBULA
+    </a>
+
+    <span class="footer-center">MADE FOR THE CURIOUS.</span>
+    <span class="footer-copy">© 2026 / DIGITAL UNIVERSE</span>
   </footer>
 
-  <div class="modal" id="modal">
+  <!-- MODAL -->
+  <div class="modal" id="planetModal">
     <div class="modal-box">
-      <button class="modal-close" id="closeModal">✕</button>
-      <p class="eyebrow">SIGNAL RECEIVED</p>
-      <h2 id="modalTitle">Welcome, explorer.</h2>
-      <p id="modalText">Your journey into the unknown has begun.</p>
-      <button class="launch-btn" id="modalOk">CONTINUE <span>↗</span></button>
+
+      <button class="modal-close" id="modalClose">×</button>
+
+      <span class="section-kicker" id="modalNumber">WORLD / 01</span>
+
+      <div class="modal-planet" id="modalPlanet"></div>
+
+      <h2 id="modalTitle">Planet Name</h2>
+      <p id="modalDescription"></p>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-facts">
+        <span>CLASS</span>
+        <strong id="modalClass">Unknown</strong>
+      </div>
+
+      <div class="modal-facts">
+        <span>ELEMENT</span>
+        <strong id="modalElement">Unknown</strong>
+      </div>
+
+      <button class="modal-done" id="modalDone">RETURN TO UNIVERSE ↗</button>
+
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- THREE.JS -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+      }
+    }
+  </script>
+
+  <script type="module" src="script.js"></script>
+
 </body>
 </html>
