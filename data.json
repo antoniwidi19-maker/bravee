@@ -1,1 +1,20 @@
-
+{
+  "brand": "ORBITA",
+  "nav": ["Satellites", "Launch", "Factory"],
+  "navButton": "Contact",
+  "hint": "Scroll",
+  "footer": "© 2026 ORBITA — concept site",
+  "stars": 160,
+  "theme": {
+    "bg": "#02040a",
+    "fg": "#eef3fa",
+    "mute": "#8fa0b8",
+    "acc": "#5aa9ff"
+  },
+  "scenes": [
+    { "label": "01 — Constellation", "title": "Satellites & launch vehicles" },
+    { "label": "02 — Hardware", "title": "Engineered in-house" },
+    { "label": "03 — Factory", "title": "Built at scale" },
+    { "title": "We build the road to orbit", "cta": "Start a mission" }
+  ]
+}
