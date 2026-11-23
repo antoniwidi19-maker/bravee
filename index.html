@@ -1,247 +1,108 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#05060b">
-  <meta name="description" content="NEBULA — An interactive journey through the universe.">
-  <title>NEBULA — Beyond Ordinary</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ORBITA — We build the road to orbit</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<nav><b>ORBITA</b><div class="links"><span>Satellites</span><span>Launch</span><span>Factory</span></div><button>Contact</button></nav>
+<div class="prog"><i></i><i></i><i></i><i></i></div>
 
-  <canvas id="starfield"></canvas>
-  <div class="ambient-glow" id="ambientGlow"></div>
+<div id="track"><div id="stage">
 
-  <nav class="navbar">
-    <a href="#home" class="logo">
-      <span class="logo-symbol">✳</span>
-      NEBULA
-    </a>
+<!-- 1 Earth + satellite -->
+<div class="scene" id="s0">
+<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+<radialGradient id="earth" cx="30%" cy="110%" r="90%"><stop offset="0" stop-color="#9fd4ff"/><stop offset=".12" stop-color="#2a74d6"/><stop offset=".5" stop-color="#0a2a66"/><stop offset="1" stop-color="#02040a"/></radialGradient>
+<linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b3a7a"/><stop offset="1" stop-color="#0a1330"/></linearGradient>
+<pattern id="cells" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 0H40M0 0V40" stroke="#6fa0ff" stroke-opacity=".35" stroke-width="1" fill="none"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="#02040a"/>
+<g fill="#fff" id="stars"></g>
+<line class="shoot" x1="1300" y1="120" x2="1370" y2="92" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="500" cy="1250" rx="1500" ry="900" fill="url(#earth)"/>
+<ellipse class="atmo" cx="500" cy="1250" rx="1500" ry="900" fill="none" stroke="#7bbcff" stroke-width="3"/>
+<g class="float"><g transform="translate(1000 330) rotate(-24)">
+<rect x="-90" y="-50" width="180" height="100" fill="#cfd6e0"/><rect x="-90" y="-50" width="180" height="14" fill="#8a94a4"/>
+<rect x="-30" y="-20" width="60" height="40" fill="#222a36"/>
+<rect x="-420" y="-30" width="320" height="60" fill="url(#panel)"/><rect x="-420" y="-30" width="320" height="60" fill="url(#cells)"/>
+<rect x="100" y="-30" width="320" height="60" fill="url(#panel)"/><rect x="100" y="-30" width="320" height="60" fill="url(#cells)"/>
+<rect class="glint" x="-420" y="-30" width="320" height="60" fill="#fff"/>
+<rect class="glint" x="100" y="-30" width="320" height="60" fill="#fff" style="animation-delay:.3s"/>
+<circle class="led" cx="-72" cy="-33" r="5" fill="#ff4d4d"/>
+<circle class="led g" cx="72" cy="-33" r="5" fill="#4dff88"/>
+<circle class="led a" cx="0" cy="40" r="4" fill="#ffd24d"/>
+</g></g>
+</svg>
+</div>
 
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#universe">Universe</a>
-      <a href="#about">About</a>
-    </div>
+<!-- 2 Hardware -->
+<div class="scene" id="s1">
+<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9edf2"/><stop offset=".5" stop-color="#9aa3af"/><stop offset="1" stop-color="#d7dce3"/></linearGradient>
+<radialGradient id="vig" cx="50%" cy="50%" r="70%"><stop offset=".4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".85"/></radialGradient></defs>
+<rect width="1600" height="900" fill="#0b0e13"/>
+<rect x="260" y="150" width="1080" height="560" rx="14" fill="url(#metal)"/>
+<g stroke="#5c6572" stroke-width="3" opacity=".6"><path d="M260 280H1340M260 580H1340M520 150V710M1100 150V710"/></g>
+<g fill="#59626f"><circle cx="290" cy="180" r="8"/><circle cx="1310" cy="180" r="8"/><circle cx="290" cy="680" r="8"/><circle cx="1310" cy="680" r="8"/></g>
+<rect x="640" y="320" width="420" height="230" rx="6" fill="#f3f5f8" stroke="#2b323c" stroke-width="3"/>
+<text x="680" y="395" font-size="56" font-weight="700" letter-spacing="6" fill="#111">ORBITA</text>
+<text x="680" y="440" font-size="22" letter-spacing="4" fill="#333">NODE · 23805</text>
+<text x="680" y="475" font-size="18" letter-spacing="3" fill="#555">P/N 1531029-00-A</text>
+<rect x="960" y="440" width="70" height="70" fill="#111"/><path d="M970 450h20v20h-20zM1000 450h20v20h-20zM970 480h20v20h-20zM1000 490h20v10h-20z" fill="#fff"/>
+<circle class="led" cx="400" cy="220" r="9" fill="#ff4d4d"/>
+<circle class="led g" cx="440" cy="220" r="9" fill="#4dff88"/>
+<circle class="led a" cx="480" cy="220" r="9" fill="#ffd24d"/>
+<circle class="led g" cx="1200" cy="640" r="9" fill="#4dff88"/>
+<rect width="1600" height="900" fill="url(#vig)"/>
+</svg>
+</div>
 
-    <a href="#universe" class="nav-explore">
-      Explore <span>↗</span>
-    </a>
-  </nav>
+<!-- 3 Factory -->
+<div class="scene" id="s2">
+<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3340"/><stop offset="1" stop-color="#070a0f"/></linearGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe4ff" stop-opacity=".5"/><stop offset="1" stop-color="#cfe4ff" stop-opacity="0"/></linearGradient></defs>
+<rect width="1600" height="900" fill="#0a0d12"/>
+<rect y="520" width="1600" height="380" fill="url(#fl)"/>
+<g stroke="#586578" stroke-width="2" opacity=".5" id="grid"></g>
+<g fill="url(#beam)"><polygon class="flick" points="300,0 380,0 460,520 220,520"/><polygon class="flick" style="animation-delay:-1s" points="1220,0 1300,0 1380,520 1140,520"/><polygon class="flick" style="animation-delay:-2s" points="760,0 840,0 900,520 700,520"/></g>
+<g fill="#dfe6ee"><path d="M800 110l32 90v300h-64V200z"/><path d="M768 440l-34 70h34zM832 440l34 70h-34z" fill="#9aa5b3"/></g>
+<g fill="#10151c" stroke="#3a4554" stroke-width="2"><rect x="120" y="560" width="260" height="120"/><rect x="1220" y="560" width="260" height="120"/><rect x="460" y="620" width="200" height="90"/><rect x="940" y="620" width="200" height="90"/></g>
+<circle class="led" cx="150" cy="580" r="7" fill="#ff4d4d"/>
+<circle class="led g" cx="1450" cy="580" r="7" fill="#4dff88"/>
+<circle class="led a" cx="480" cy="640" r="6" fill="#ffd24d"/>
+<circle class="led" cx="1120" cy="640" r="6" fill="#ff4d4d"/>
+</svg>
+</div>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
+<!-- 4 Launch -->
+<div class="scene" id="s3">
+<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a3d78"/><stop offset=".6" stop-color="#8fb5e0"/><stop offset="1" stop-color="#f2d9b8"/></linearGradient>
+<linearGradient id="fire" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6d0"/><stop offset=".4" stop-color="#ffb347"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<polygon points="0,900 0,600 1600,520 1600,900" fill="#c9d1da"/>
+<polygon points="0,900 0,700 1600,640 1600,900" fill="#e8edf2"/>
+<g stroke="#9aa5b3" stroke-width="2"><path d="M200 760L1400 700M400 820L1500 760M0 800L1100 740"/></g>
+<g fill="#fff"><path d="M1060 330l14 40v150h-28V370z"/></g>
+<ellipse class="flame" cx="1060" cy="528" rx="14" ry="40" fill="url(#fire)"/>
+<ellipse cx="1060" cy="540" rx="60" ry="10" fill="#ffd9a0" opacity=".8"/>
+<circle class="led" cx="300" cy="740" r="6" fill="#ff4d4d"/>
+<circle class="led" cx="1400" cy="690" r="6" fill="#ff4d4d" style="animation-delay:.6s"/>
+</svg>
+<div class="cap c" data-i="3"><h2>We build the road to orbit</h2><button class="cta">Start a mission</button></div>
+</div>
 
-    <div class="hero-meta">
-      <div class="status">
-        <span class="status-dot"></span>
-        INTERACTIVE COSMOS
-      </div>
-      <span class="coordinates">SOLAR SYSTEM / DEEP SPACE</span>
-    </div>
-
-    <div class="hero-scene">
-
-      <div class="orbit orbit-large">
-        <span class="orbit-dot"></span>
-      </div>
-
-      <div class="orbit orbit-small">
-        <span class="orbit-dot blue"></span>
-      </div>
-
-      <
-<div id="planet3d" class="planet-3d" aria-label="Interactive 3D planet"></div>
-<div class="planet-ring-decor"></div>
-
-
-      <div class="hero-content">
-        <span class="hero-kicker">A JOURNEY INTO THE UNKNOWN</span>
-
-        <h1>
-          BEYOND<br>
-          <span>ORDINARY.</span>
-        </h1>
-
-        <p>
-          Somewhere between reality and imagination,<br>
-          there's a universe waiting to be discovered.
-        </p>
-
-        <a href="#universe" class="journey-button">
-          <span class="button-circle">↓</span>
-          BEGIN YOUR JOURNEY
-        </a>
-      </div>
-
-      <div class="scene-label label-left">
-        <span>PLANET 001</span>
-        <span>ROTATE TO EXPLORE</span>
-      </div>
-
-      <div class="scene-label label-right">
-        <span>360° EXPERIENCE</span>
-        <span>DRAG / TOUCH</span>
-      </div>
-
-    </div>
-
-    <div class="hero-footer">
-      <span>SCROLL TO EXPLORE</span>
-      <div class="scroll-progress-line"></div>
-      <span>01 — 03</span>
-    </div>
-
-  </section>
-
-  <!-- UNIVERSE -->
-  <section class="section universe-section" id="universe">
-
-    <div class="section-heading reveal">
-      <div>
-        <span class="section-kicker">01 / DISCOVER WORLDS</span>
-        <h2>Infinite space.<br><span>Infinite possibilities.</span></h2>
-      </div>
-
-      <p class="section-description">
-        Beyond the boundaries of our imagination lies an endless
-        collection of worlds, each with its own story, atmosphere,
-        and mysteries waiting to be discovered.
-      </p>
-    </div>
-
-    <div class="planet-grid" id="planetGrid"></div>
-
-    <div class="universe-note reveal">
-      <span class="note-symbol">✳</span>
-      <p>Choose a world. Discover its story. Keep exploring.</p>
-    </div>
-
-  </section>
-
-  <!-- COSMIC INFORMATION -->
-  <section class="section knowledge-section" id="about">
-
-    <div class="knowledge-top reveal">
-      <span class="section-kicker">02 / COSMIC PERSPECTIVE</span>
-      <h2>There is more<br>than meets the <span>eye.</span></h2>
-      <p>
-        The universe is more than a collection of stars. It is a vast
-        landscape of time, energy, matter, and unanswered questions.
-        Every discovery changes how we understand our place within it.
-      </p>
-    </div>
-
-    <div class="stat-grid reveal">
-      <div class="stat">
-        <span class="stat-number">13.8B</span>
-        <span class="stat-title">YEARS</span>
-        <p>Approximate age of the universe</p>
-      </div>
-
-      <div class="stat">
-        <span class="stat-number">∞</span>
-        <span class="stat-title">POSSIBILITIES</span>
-        <p>Limitless ideas to discover</p>
-      </div>
-
-      <div class="stat">
-        <span class="stat-number">1</span>
-        <span class="stat-title">PERSPECTIVE</span>
-        <p>A different way to see everything</p>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- PORTAL -->
-  <section class="portal-section">
-
-    <div class="portal-copy reveal">
-      <span class="section-kicker">03 / THE NEXT FRONTIER</span>
-      <h2>Curiosity is<br>your <span>compass.</span></h2>
-      <p>
-        The most extraordinary journeys begin with a question.
-        Stay curious, look beyond what you know, and never stop
-        searching for something new.
-      </p>
-
-      <button class="launch-button" id="launchButton">
-        INITIATE EXPLORATION <span>↗</span>
-      </button>
-    </div>
-
-    <div class="portal-visual" id="portalVisual">
-      <div class="portal-ring ring-1"></div>
-      <div class="portal-ring ring-2"></div>
-      <div class="portal-ring ring-3"></div>
-      <div class="portal-light"></div>
-      <div class="portal-core"></div>
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <a href="#home" class="logo">
-      <span class="logo-symbol">✳</span>
-      NEBULA
-    </a>
-
-    <span class="footer-center">MADE FOR THE CURIOUS.</span>
-    <span class="footer-copy">© 2026 / DIGITAL UNIVERSE</span>
-  </footer>
-
-  <!-- MODAL -->
-  <div class="modal" id="planetModal">
-    <div class="modal-box">
-
-      <button class="modal-close" id="modalClose">×</button>
-
-      <span class="section-kicker" id="modalNumber">WORLD / 01</span>
-
-      <div class="modal-planet" id="modalPlanet"></div>
-
-      <h2 id="modalTitle">Planet Name</h2>
-      <p id="modalDescription"></p>
-
-      <div class="modal-divider"></div>
-
-      <div class="modal-facts">
-        <span>CLASS</span>
-        <strong id="modalClass">Unknown</strong>
-      </div>
-
-      <div class="modal-facts">
-        <span>ELEMENT</span>
-        <strong id="modalElement">Unknown</strong>
-      </div>
-
-      <button class="modal-done" id="modalDone">RETURN TO UNIVERSE ↗</button>
-
-    </div>
-  </div>
-
-  <!-- THREE.JS -->
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
-      }
-    }
-  </script>
-
-  <script type="module" src="script.js"></script>
-
+<div class="cap" data-i="0"><small>01 — Constellation</small><h2>Satellites &amp; launch vehicles</h2></div>
+<div class="cap" data-i="1"><small>02 — Hardware</small><h2>Engineered in-house</h2></div>
+<div class="cap" data-i="2"><small>03 — Factory</small><h2>Built at scale</h2></div>
+<div class="hint" id="hint">Scroll</div>
+</div></div>
+<footer>© 2026 ORBITA — concept site</footer>
+<script src="script.js"></script>
 </body>
 </html>
-
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
-  }
-}
-</script>
